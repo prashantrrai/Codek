@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   constructor(private router: Router){}
 
-  navigateToHome(){
-    this.router.navigate(['/home'])
-  }
+  // navigateToHome(){
+  //   this.router.navigate(['/home'])
+  // }
 }

@@ -24,7 +24,6 @@ export class HomeComponent implements OnInit{
   }
 
   ngOnInit(){
-    this.getdata()
   }
 
   registerUser(){
@@ -34,32 +33,18 @@ export class HomeComponent implements OnInit{
       this._home.signupUser(formData).subscribe({
         next: (response: any) => {
           console.log(response)
-          // alert("Registration Successful")
+          this.signupFORM.reset()
           this.toastr.success('Registration Successful', 'Success');
         },
         error: (error: any) => {
           console.log(error)
-          this.toastr.error('Registration Failed', 'Error');
+          this.toastr.warning(error.error.message);
         }
       })
     } else {
       console.log("error")
-      // alert("All fields are required")
       this.toastr.warning('All fields are required');
     }
   }
-
-
-  getdata(){
-      this._home.getUser().subscribe({
-        next: (response: any) => {
-          console.log(response)
-        },
-        error: (error: any) => {
-          console.log(error)
-        }
-      })
-    }
-
 
 }

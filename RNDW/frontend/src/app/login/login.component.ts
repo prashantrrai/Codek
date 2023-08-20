@@ -34,7 +34,7 @@ export class LoginComponent {
         next: (response: any) => {
           console.log(response)
 
-          this.toastr.success('Login Successful', 'Success');
+          this.toastr.success(response.message, 'Success');
         },
         error: (error: any) => {
           console.log(error)

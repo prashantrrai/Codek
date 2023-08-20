@@ -41,13 +41,13 @@ async function getdataHandler (req, res) {
 
 async function loginHandler (req, res) {
     try {
-        // console.log(req.body);
-        const {email, phone, password} = req.body
-        if((!email || !phone) && !password){
-            return res.status(400).json({ success: false, message: "All  fields are required"});
-        }
+        console.log(req.body);
+        const {email_phone, password} = req.body
+        // if(!email_phone && !password){
+        //     return res.status(400).json({ success: false, message: "All  fields are required"});
+        // }
 
-        const user = await signupModel.findOne({$or: [{email}, {phone}]});
+        const user = await signupModel.findOne({$or: [{email: email_phone}, {phone: email_phone}]});
         // console.log("51",user)
         if (!user) {
             return res.json({success:false, message: "User Not Found, Kindly Register"});
