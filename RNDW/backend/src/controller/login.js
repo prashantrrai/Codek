@@ -18,9 +18,9 @@ async function signupHandler (req, res) {
         }
 
         const newUser = new signupModel({name, email, phone, password});
-        const savedUser = await newUser.save();
+        const data = await newUser.save();
 
-        return res.status(200).json({ success: true, message: "Registration Success", savedUser});
+        return res.status(200).json({ success: true, message: "Registration Success", data});
     } catch (error) {
         console.error(error);
         return res.status(500).json({ success: false, error: error.message });
@@ -31,7 +31,7 @@ async function signupHandler (req, res) {
 async function getdataHandler (req, res) {
     try {
         const data = await signupModel.find()
-        console.log("36",data);
+        // console.log("36",data);
         return res.json({success:true, data})
     } catch (error) {
         console.log(error);
