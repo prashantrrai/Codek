@@ -86,4 +86,20 @@
 // let count = 1;
 // var count2 = 2;
 
-console.log("Hello")
+// console.log("Hello") 
+
+
+//MAP , FILTER, REDUCE
+const num = [1,2,3,4]
+
+console.log(num)
+
+const multiply2 = num.map((x, i, arr) => {
+    return x*2;
+})
+console.log(multiply2)
+
+const morethan2 = num.filter((x, i, arr) => {
+    return x>2
+})
+console.log(morethan2)
