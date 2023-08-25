@@ -90,16 +90,77 @@
 
 
 //MAP , FILTER, REDUCE
-const num = [1,2,3,4]
+// const num = [1,2,3,4]
 
-console.log(num)
+// console.log(num)
 
-const multiply2 = num.map((x, i, arr) => {
-    return x*2;
-})
-console.log(multiply2)
+// const multiply2 = num.map((x, i, arr) => {
+//     return x*2;
+// })
+// console.log(multiply2)
 
-const morethan2 = num.filter((x, i, arr) => {
-    return x>2
-})
-console.log(morethan2)
+// const morethan2 = num.filter((x, i, arr) => {
+//     return x>2
+// })
+// console.log(morethan2)
+
+//FUNCTION in Javascript
+//function declaration | function definition | function statement
+// function square(a){
+//     return a * a;
+// }
+// console.log(square(3))
+
+// function expression | anonymous fxn are assigned to a variable  
+// const square = function (a){
+//     return a * a;
+// }
+// console.log(square(5))
+
+//waht is first class function
+// function square(a){
+//     return a * a;
+// }
+
+// function displaysquare(fxn){
+//     console.log("square is"+fxn(10))
+// }
+
+// displaysquare(square)
+
+// what is IIFE?
+// Immediately Invoked Funcion Expression  without calling function
+// (function hello(num){
+//     console.log(num+num)
+// })(19)
+
+// closure
+
+// (function (x){
+//     return (function(y){
+//         console.log(x)
+//     })(2);
+// })(3)
+
+// function scope
+
+// for (var i =0; i<5; i++){
+//     setTimeout(function() {
+//         console.log(i);
+//     }, i*1000);
+// }
+
+//function hoisting
+
+// var x=21
+// var fun = function(){
+//     console.log(x)
+//     var x = 20
+// }
+
+// fun()
+
+// const fn = (a, x, y, ...numbers) => {
+//     console.log(x,y,numbers)
+// }
+// fn(5,6,3,7, 8, 9)
