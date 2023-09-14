@@ -2,7 +2,7 @@
 
 ## **Project Description:**
 
-### Codek is a community-driven repository dedicated to helping individuals prepare for IT company interviews and advance in their careers. It serves as a valuable resource hub, offering a wealth of information about interview processes, tasks, and questions commonly encountered in the technology industry.
+Codek is a community-driven repository dedicated to helping individuals prepare for IT company interviews and advance in their careers. It serves as a valuable resource hub, offering a wealth of information about interview processes, tasks, and questions commonly encountered in the technology industry.
 
 ## **Key Features:**
 
@@ -32,4 +32,4 @@ Contributions to Codek are highly encouraged. Share your interview experiences, 
 
 ## **License:**
 
-### This project is open-source and operates under an open license, promoting knowledge sharing and collaboration.
+This project is open-source and operates under an open license, promoting knowledge sharing and collaboration.
