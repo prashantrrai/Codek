@@ -1,7 +1,7 @@
-let num =  [3, 8, 2, 10, 5]
+// let num =  [3, 8, 2, 10, 5]
 
-let sorted_num = num.sort()
-console.log("ddh",sorted_num)
+// let sorted_num = num.sort()
+// console.log("ddh",sorted_num)
 
 (function () {
     console.log(1);
@@ -14,7 +14,7 @@ console.log("ddh",sorted_num)
     console.log(4);
   })();
   
-  let arr =  [3, 8, 2, 10, 5]
+  // let arr =  [3, 8, 2, 10, 5]
   
-  let sorted_arr = num.sort()
-  console.log(sorted_num)
+  // let sorted_arr = num.sort()
+  // console.log(sorted_num)
