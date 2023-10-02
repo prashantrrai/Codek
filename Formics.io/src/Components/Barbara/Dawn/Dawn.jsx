@@ -1,18 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-const Dawn = (props) => {
+const Dawn = ({ onIncrement }) => {
 
-  const [count, setCount] = useState(1)
-
-  const handleIncrease = () => {
-    const newCount = count + 1;
-    setCount(newCount);
-    props.setCount(newCount);
-  }
   return (
     <div>
       <div className='p-1 bg-gray-200 rounded-lg'>
-        <button onClick={handleIncrease}>➕</button>
+        <button onClick={onIncrement}>➕</button>
       </div>
     </div>
   )

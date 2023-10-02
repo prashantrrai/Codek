@@ -2,14 +2,37 @@ import React from 'react'
 import Dawn from './Dawn/Dawn';
 import Emre from './Emre/Emre';
 import { useState } from 'react';
+import Carlos from '../Carlos/Carlos';
 
 const Barbara = (props) => {
 
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(0);
   
-  const handleCountChange = (newCount) => {
-    setCount(newCount);
+  // const handleIncrement = (index) => {
+  //   setCount((prevCounters) => {
+  //     const newCounters = [...prevCounters];
+  //     newCounters[index] = newCounters[index] + 1;
+  //     return newCounters;
+  //   });
+  // };
+
+  // const handleDecrement = (index) => {
+  //   setCount((prevCounters) => {
+  //     const newCounters = [...prevCounters];
+  //     newCounters[index] = newCounters[index] - 1;
+  //     return newCounters;
+  //   });
+  // };
+
+
+  const handleIncrement = () => {
+    setCount((prevState) => prevState + 1);
   };
+
+  const handleDecrement = () => {
+    setCount((prevState) => prevState - 1);
+  };
+
 
   return (
     <>
@@ -17,9 +40,9 @@ const Barbara = (props) => {
         <span className="text-xl font-bold">Counter</span>
         <span className="text-2xl font-bold">{props.counter}</span>
         <div className="flex">
-          <Dawn setCount={handleCountChange}/>
-            <span className="text-lg font-bold bg-gray-500 px-4">{count}</span>
-          <Emre setCount={handleCountChange}/>
+          <Dawn onIncrement={handleIncrement}/>
+          <Carlos count={count}/>
+          <Emre onDecrement={handleDecrement}/>
         </div>
       </div>
 
