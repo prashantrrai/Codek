@@ -1,0 +1,139 @@
+<div class="container col-md-6">
+    <form class="row" [formGroup]="_users.userForm" (submit)="onSubmit()">
+        <div class="col-12 mb-3">
+            <label class="form-label">Full Name</label>
+            <input class="form-control" placeholder="Enter your full name" formControlName="fullname"
+                [class.is-invalid]="_users.userForm.get('fullname')?.invalid && (_users.userForm.get('fullname')?.touched || _users.userForm.get('fullname')?.dirty)">
+    
+            <div *ngIf="_users.userForm.get('fullname')?.invalid && (_users.userForm.get('fullname')?.touched || _users.userForm.get('fullname')?.dirty)"
+                class="invalid-feedback text-danger">
+                <div *ngIf="_users.userForm.get('fullname')?.errors?.['required']">Name is required.</div>
+            </div>
+        </div>
+    
+        <div class="col-6 mb-3">
+            <label class="form-label">Email</label>
+            <input class="form-control" placeholder="Enter your email" formControlName="email"
+                [class.is-invalid]="_users.userForm.get('email')?.invalid && (_users.userForm.get('email')?.touched || _users.userForm.get('email')?.dirty)">
+            <div *ngIf="_users.userForm .get('email')?.invalid && (_users.userForm.get('email')?.touched || _users.userForm.get('email')?.dirty)"
+                class="invalid-feedback">
+                <div *ngIf="_users.userForm.get('email')?.errors?.['required']">Email is required.</div>
+                <div *ngIf="_users.userForm.get('email')?.errors?.['email']">Please enter a valid email.</div>
+            </div>
+        </div>
+    
+        <div class="col-6 mb-3">
+            <label class="form-label">Phone Number</label>
+            <input class="form-control" maxlength="10" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                placeholder="Enter your phone number" formControlName="phone"
+                [class.is-invalid]="_users.userForm.get('phone')?.invalid && (_users.userForm.get('phone')?.touched || _users.userForm.get('phone')?.dirty)">
+            <div *ngIf="_users.userForm.get('phone')?.invalid && (_users.userForm.get('phone')?.touched || _users.userForm.get('phone')?.dirty)"
+                class="invalid-feedback text-danger">
+                <div *ngIf="_users.userForm.get('phone')?.errors?.['required']">Phone is required.</div>
+                <div *ngIf="_users.userForm.get('phone')?.errors?.['minlength']">Phone number must be 10 digits.</div>
+            </div>
+        </div>
+    
+        <div class="col-6 mb-3">
+            <label class="form-label">Address Line 1</label>
+            <input class="form-control" placeholder="Enter Street address" formControlName="address1"
+                [class.is-invalid]="_users.userForm.get('address1')?.invalid && (_users.userForm.get('address1')?.touched || _users.userForm.get('address1')?.dirty)">
+    
+            <div *ngIf="_users.userForm.get('address1')?.invalid && (_users.userForm.get('address1')?.touched || _users.userForm.get('address1')?.dirty)"
+                class="invalid-feedback text-danger">
+                <div *ngIf="_users.userForm.get('address1')?.errors?.['required']">Address 1 is required.</div>
+            </div>
+        </div>
+    
+        <div class="col-6 mb-3">
+            <label class="form-label">Address Line 2</label>
+            <input class="form-control" placeholder="Enter locality" formControlName="address2"
+                [class.is-invalid]="_users.userForm.get('address2')?.invalid && (_users.userForm.get('address2')?.touched || _users.userForm.get('address2')?.dirty)">
+    
+            <div *ngIf="_users.userForm.get('address2')?.invalid && (_users.userForm.get('address2')?.touched || _users.userForm.get('address2')?.dirty)"
+                class="invalid-feedback text-danger">
+                <div *ngIf="_users.userForm.get('address2')?.errors?.['required']">Address 2 is required.</div>
+            </div>
+        </div>
+    
+        <div class="col-6 mb-3">
+            <label class="form-label">City</label>
+            <input class="form-control" placeholder="Enter City name" formControlName="city"
+                [class.is-invalid]="_users.userForm.get('city')?.invalid && (_users.userForm.get('city')?.touched || _users.userForm.get('city')?.dirty)">
+    
+            <div *ngIf="_users.userForm.get('city')?.invalid && (_users.userForm.get('city')?.touched || _users.userForm.get('city')?.dirty)"
+                class="invalid-feedback text-danger">
+                <div *ngIf="_users.userForm.get('city')?.errors?.['required']">city is required.</div>
+            </div>
+        </div>
+        <div class="col-6 mb-3">
+            <label class="form-label">Zip Code</label>
+            <input class="form-control" maxlength="6" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                placeholder="Enter Pin/Zip code" formControlName="zip"
+                [class.is-invalid]="_users.userForm.get('zip')?.invalid && (_users.userForm.get('zip')?.touched || _users.userForm.get('zip')?.dirty)">
+    
+            <div *ngIf="_users.userForm.get('zip')?.invalid && (_users.userForm.get('zip')?.touched || _users.userForm.get('zip')?.dirty)"
+                class="invalid-feedback text-danger">
+                <div *ngIf="_users.userForm.get('zip')?.errors?.['required']">Zip code is required.</div>
+                <div *ngIf="_users.userForm.get('zip')?.errors?.['minlength']">Zip Code must be 6 digits.</div>
+            </div>
+        </div>
+    
+    
+        <div class="col-6 mb-3">
+            <label class="form-label">State</label>
+            <select class="form-control" formControlName="state">
+                <option value="">Select state</option>
+                <option value="" *ngFor="let state of stateArray" [value]="state">{{state}}</option>
+            </select>
+        </div>
+    
+        <div class="col-6 mb-3">
+            <label class="form-label">Country</label>
+            <select class="form-control" formControlName="country">
+                <option value="">Select country</option>
+                <option value="" *ngFor="let country of countryArray" [value]="country">{{country}}</option>
+            </select>
+        </div>
+    
+    
+        <div class="col-12 d-grid">
+            <button *ngIf="!isEditMode" class="btn btn-primary" type="submit">Submit</button>
+            <button *ngIf="isEditMode" class="btn btn-success" type="submit">Update</button>
+        </div>
+    </form>
+        
+</div>
+
+<div class="container mt-4">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address 1</th>
+                <th>Address 2</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Country</th>
+                <th>Zip</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let values of userArray" (click)="editbtn(values)">
+                <td>{{values.fullname}}</td>
+                <td>{{values.email}}</td>
+                <td>{{values.phone}}</td>
+                <td>{{values.address1}}</td>
+                <td>{{values.address2}}</td>
+                <td>{{values.city}}</td>
+                <td>{{values.state}}</td>
+                <td>{{values.country}}</td>
+                <td>{{values.zip}}</td>
+                <td class="text-center"><button class="border" (click)="deleteUser(values._id)"><i class="fa-solid fa-trash"></i></button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
