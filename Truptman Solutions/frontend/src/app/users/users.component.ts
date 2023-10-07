@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../services/users.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-users',
@@ -16,7 +18,9 @@ export class UsersComponent  implements OnInit{
 
   constructor(
     public _users: UsersService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -109,6 +113,12 @@ export class UsersComponent  implements OnInit{
         }
       })
     }
+  }
+
+
+  logout(){
+    this.authService.setAuthenticated(false);
+    this.router.navigate(['/login']);
   }
 
 }

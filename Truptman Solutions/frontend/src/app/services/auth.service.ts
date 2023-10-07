@@ -11,24 +11,20 @@ export class AuthService {
 
   login(email: string, password: string): boolean {
     if(email==='prashant@gmail.com' && password==='admin123'){
-      return this.isAuthenticated = true;
+      this.isAuthenticated = true;
+      return true;
     }
-    return this.isAuthenticated = false;
-  }
-
-  logout(): void {
     this.isAuthenticated = false;
+    return false; 
   }
 
 
-  setAuthenticated(status: boolean): boolean {
+  setAuthenticated(status: boolean): void {
     this.isAuthenticated = status;
-    console.log(this.isAuthenticated)
-    return this.isAuthenticated;
+    console.log("status:",this.isAuthenticated)
   }
   //-----------for sending login Status to auth guard for allowing access to /users-------------//
-  // isLoggedIn(): boolean {
-  //   return this.isAuthenticated;
-  //   console.log(this.isAuthenticated)
-  // }
+  isLoggedIn(): boolean {
+    return this.isAuthenticated; 
+  }
 }
