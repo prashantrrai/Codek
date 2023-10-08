@@ -9,6 +9,11 @@ function showMessage() {
     console.log("Longest Word:", result.longest, "Longest Reverse:", rev_result.reverseL1 );
     console.log("Shortest Word:", result.shortest, "Shortest Reverse:", rev_result.reverseS1 );
 
+    document.getElementById('longestWord').textContent = result.longest;
+    document.getElementById('reversedLongestWord').textContent = rev_result.reverseL1;
+
+    document.getElementById('shortestWord').textContent = result.shortest;
+    document.getElementById('reversedShortestWord').textContent = rev_result.reverseS1;
 }
 
 function findLongestAndShortestWords(paragraph) {
@@ -28,6 +33,7 @@ function findLongestAndShortestWords(paragraph) {
             shortestWord = cleanedWord;
         }
     }
+    
     return { longest: longestWord, shortest: shortestWord };
 }
 
